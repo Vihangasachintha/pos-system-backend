@@ -10,26 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // POST /api/auth/register
-
-    // public function register(Request $request)
-    // {
-    //     $request->validate([
-    //         'name'     => 'required|string|max:255',
-    //         'email'    => 'required|string|email|unique:users',
-    //         'password' => 'required|string|min:6|confirmed', // needs password_confirmation field
-    //     ]);
-
-    //     $user = User::create([
-    //         'name'     => $request->name,
-    //         'email'    => $request->email,
-    //         'password' => $request->password, // auto-hashed by your model cast
-    //     ]);
-
-    //     $token = Auth::login($user);
-
-    // }
-
+    
     // POST /api/auth/login
     public function login(Request $request)
     {
