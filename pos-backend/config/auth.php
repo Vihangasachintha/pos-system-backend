@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Models\Admin;
 
 return [
 
@@ -45,7 +45,7 @@ return [
 
         'api' => [
             'driver'   => 'jwt',      // ← change from 'token' to 'jwt'
-            'provider' => 'users',
+            'provider' => 'admins',
         ],
     ],
 
@@ -67,9 +67,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'admins' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
+            'model' => env('AUTH_MODEL', Admin::class),
         ],
 
         // 'users' => [
