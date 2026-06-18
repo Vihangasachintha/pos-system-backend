@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+// Import Laravel's built-in authenticated user class and call it Authenticatable in this file.
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject; 
 
-class User extends Authenticatable implements JWTSubject 
+class Admin extends Authenticatable implements JWTSubject 
 {
     use Notifiable;
 
