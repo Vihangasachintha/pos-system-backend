@@ -14,13 +14,14 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'        => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'sku'         => 'required|string|unique:products,sku',
-            'price'       => 'required|numeric|min:0',
-            'stock'       => 'required|integer|min:0',
-            'category'    => 'nullable|string|max:100',
-            'is_active'   => 'boolean',
+            'category_id'     => 'required|exists:categories,id',
+            'brand_id'        => 'nullable|exists:brands,id',
+            'name'            => 'required|string|max:255',
+            'barcode'         => 'nullable|string|unique:products,barcode',
+            'sku'             => 'required|string|unique:products,sku',
+            'purchase_price'  => 'required|numeric|min:0',
+            'selling_price'   => 'required|numeric|min:0',
+            'is_active'       => 'boolean',
         ];
     }
 
