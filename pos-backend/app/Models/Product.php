@@ -21,6 +21,7 @@ class Product extends Model
         'unit',
         'purchase_price',
         'selling_price',
+        'stock_quantity',
         'is_active'
     ];
 
