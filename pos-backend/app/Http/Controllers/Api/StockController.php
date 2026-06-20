@@ -12,17 +12,23 @@ use Illuminate\Support\Facades\DB;
 
 class StockController extends Controller
 {
+    // List all stock movements
     public function index(Request $request): JsonResponse
     {
-        $movements = StockMovements::with('product')
+        $movements = StockMovements::with('product') //  fetches all stock movement records, 
+
             ->when($request->product_id, fn($q) => $q->where('product_id', $request->product_id))
+            // "Check if product_id was sent in the request. If yes, take the query ($q) and add 
+            // WHERE product_id = [that value] to it. If no, don't change the query at all — just skip this part."
             ->when($request->type, fn($q) => $q->where('type', $request->type))
-            ->latest()
+            ->latest() // sorts results so the most recent movement appears first 
             ->paginate(20);
 
         return response()->json($movements);
     }
 
+
+    // Get one specific movement
     public function show(StockMovements $stockMovement): JsonResponse
     {
         $stockMovement->load('product');
@@ -30,6 +36,8 @@ class StockController extends Controller
         return response()->json($stockMovement);
     }
 
+
+    // Create a new stock movement 
     public function store(StoreStockRequest $request): JsonResponse
     {
         $data = $request->only([
@@ -62,6 +70,6 @@ class StockController extends Controller
             ]);
         });
 
-        return response()->json($movement->load('product'), 201);
+        return response()->json($movement->load('product'), 201); //attaches the related product's details onto the movement object 
     }
 }
