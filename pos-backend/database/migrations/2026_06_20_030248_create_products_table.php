@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('sku')->unique();
             $table->decimal('purchase_price', 10, 2);
             $table->decimal('selling_price', 10, 2);
-            $table->integer('stock_quantity')->default(0);
-            $table->integer('minimum_stock')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
