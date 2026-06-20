@@ -15,12 +15,14 @@ class Product extends Model
     protected $fillable = [
         'category_id',
         'brand_id',
-        'product_variant_id',
         'name',
         'barcode',
+        'sku',
         'unit',
-        'billing_price',
+        'purchase_price',
         'selling_price',
+        'stock_quantity',
+        'is_active'
     ];
 
     // Inverse of hasMany
