@@ -34,6 +34,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('sales',          [SaleController::class, 'index']);
     Route::get('sales/{sale}',   [SaleController::class, 'show']);
+    Route::get('sales/{sale}{with_items}',   [SaleController::class, 'show']);
     Route::post('sales',         [SaleController::class, 'store']);
 });
 
