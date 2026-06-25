@@ -25,11 +25,13 @@ class SaleController extends Controller
         return response()->json($sales);
     }
 
-    public function show(Sale $sale): JsonResponse
+    public function show(Sale $sale, Request $request): JsonResponse
     {
+        if ($request->boolean('with_items')) {
         $sale->load('saleItems.product');
+    }
 
-        return response()->json($sale);
+    return response()->json($sale);
     }
 
     public function store(StoreSaleRequest $request): JsonResponse
