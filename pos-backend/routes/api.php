@@ -19,6 +19,8 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/brands', [BrandController::class, 'store']);
     Route::post('/categories', [CategoryController::class, 'store']);
     Route::post('/suppliers',  [SupplierController::class, 'store']);
+    Route::get('/suppliers/{supplier}',  [SupplierController::class, 'show']);
+    Route::get('/suppliers',  [SupplierController::class, 'index']);
 
     Route::get('stock-movements',       [StockController::class, 'index']);
     Route::get('stock-movements/{stockMovement}', [StockController::class, 'show']);
