@@ -45,7 +45,7 @@ class AuthController extends Controller
             'success'      => true,
             'access_token' => $token,           // The JWT string
             'token_type'   => 'bearer',         // Standard name for JWT auth type
-            'expires_in'   => Auth::factory()->getTTL() * 60*6, // Expiry in seconds
+            'expires_in'   => Auth::factory()->getTTL() * 60, // Expiry in seconds
             'user'         => $user,            // The logged-in user data
         ], $status);
     }
